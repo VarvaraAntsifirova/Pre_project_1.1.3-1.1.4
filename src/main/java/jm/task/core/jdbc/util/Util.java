@@ -9,7 +9,7 @@ public class Util {
     public static final String DB_Driver = "com.mysql.cj.jdbc.Driver";
     public static Connection connection;
 
-    public static Connection connection () {
+    public static Connection connection() {
         try {
             Class.forName(DB_Driver);
             connection = DriverManager.getConnection(DB_URL, "root", "root");

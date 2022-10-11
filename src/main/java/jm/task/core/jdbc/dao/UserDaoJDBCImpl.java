@@ -12,26 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
-    public static Statement preparedStatement;
     public static Util util = new Util();
     public static Connection connection = util.connection();
-
-    /*static {
-        try {
-            preparedStatement = connection.createStatement();
-        } catch (SQLException throwable) {
-            throwable.printStackTrace();
-        }
-    }*/
 
     public UserDaoJDBCImpl() {
 
     }
 
     public void createUsersTable() {
-        try ( Statement preparedStatement = connection.createStatement()) {
+        try (Statement preparedStatement = connection.createStatement()) {
             preparedStatement.executeUpdate("CREATE TABLE user_for_task (id INT PRIMARY KEY AUTO_INCREMENT,name VARCHAR(30), lastName VARCHAR(35), age INT);");
-        } catch (SQLException ignored) {}
+        } catch (SQLException ignored) {
+        }
     }
 
     public void dropUsersTable() {
@@ -76,6 +68,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void cleanUsersTable() {
         try (Statement preparedStatement = connection.createStatement()) {
             preparedStatement.executeUpdate("TRUNCATE user_for_task;");
-        } catch (SQLException ignored) {}
+        } catch (SQLException ignored) {
+        }
     }
 }

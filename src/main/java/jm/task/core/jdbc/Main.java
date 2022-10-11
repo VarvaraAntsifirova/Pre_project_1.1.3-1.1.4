@@ -22,7 +22,7 @@ public class Main {
         User user2 = new User("Vova", "Petrov", (byte) 18);
         service.saveUser("Vova", "Petrov", (byte) 18);
         System.out.println("User с именем – " + user2.getName() + " добавлен в базу данных");
-        
+
         User user3 = new User("Vlad", "Petrov", (byte) 10);
         service.saveUser("Vlad", "Petrov", (byte) 10);
         System.out.println("User с именем – " + user3.getName() + " добавлен в базу данных");
